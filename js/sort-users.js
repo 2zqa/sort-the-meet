@@ -23,7 +23,9 @@
                     let cur_item = items[i];
                     let cur_name = cur_item.getElementsByTagName("span")[0].innerHTML;
 
-                    if (cur_name.localeCompare(user_name) === 1) {
+                    // Use localeCompare and index to ensure stable sorting
+                    if (cur_name.localeCompare(user_name) === 1 ||
+                        (cur_name.localeCompare(user_name) === 0 && i > user_ind)) {
                         new_user_ind = i;
                         break;
                     }
